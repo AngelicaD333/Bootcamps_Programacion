@@ -13,6 +13,15 @@ header {
     margin: 0;
     text-align: center;
    color: white;
+
+   /* Hacer sticky el header */
+   position: sticky;
+   top:0 ;
+   left: 0;
+   width: auto; */
+
+   /*NO hacer sticky el header  */
+   /* position: relative; */
     
 }
 
@@ -28,43 +37,29 @@ h2 {
 
 .layout-grid{
     display: grid;
-    grid-template-columns:1fr 2fr 2fr ;
-    grid-template-rows: auto 1fr 1fr auto;
-    margin-top: 0;
-    margin-bottom: 30px;
+    grid-template-columns: 280px 1fr ;
     gap:20px ;
     padding: 20px;
-    grid-template-areas:
-        "header header header"
-        "sidebar content_1 content_2"
-        "sidebar content_3 content_3"
-        "footer footer footer";
+    height: 100vh;
         
 }    
     /* Ajustar la ubicacion de todos los elementos del diseño usando los "grid-area" que les corresponden */   
 .sidebar {
-    grid-area: sidebar;
-    background-color: #B3DAF2 ;
-    padding: 15px;
-    border-radius: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    
+    background-color: #B3DAF2;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+   
 
 }
+
 
 .sidebar h2 {
     color: white;
-}
-
-.content_1 {
-    grid-area: content_1;
-}
-.content_2 { 
-    grid-area: content_2;
-}
-
-.content_3 { 
-    grid-area: content_3;
 }
 
 .sidebar ul {
@@ -88,7 +83,7 @@ h2 {
     color: white;
 }
 .content_1, .content_2, .content_3 {
-    background-color: white;
+    
     border-radius: 20px;
     padding: 30px;
     padding-top: 10px;
@@ -100,8 +95,51 @@ p {
     color: #333;
 }
 
+img {
+    max-width: 100% ;
+    height: auto ;
+    border-radius: 10px ;
+    display: block;
+    margin: 10px auto ;
+
+}
+
+.portfolio {
+    display: grid;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+
+    /* Defino el nombre y ocupación de cada area */
+    grid-template-areas: 
+        "item1  item1 item1 "
+        "item2 item3 item4"
+        "item5 item5 item5";
+    grid-auto-flow: auto;
+
+}
+/* Asignar cada hijo de item a una area*/
+.item:nth-child(1){ grid-area: item1;}
+
+.item:nth-child(2){ grid-area: item2 item3 item4;}
+
+.item:nth-child(3){grid-area: item5;
+                    margin-bottom:60px;}
+
+.item {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+
+}
+
+
 section {
-    background-color: #fff;
+    background-color: white;
     border-radius: 20px;
     padding: 30px;
     padding-top: 10px;
